@@ -31,8 +31,6 @@ Feel free to send me any feedback even via dm on twitter @FelgueirasSimao
 
 * Do we need fragments? Nope
 * Where to place the view model?
-* Google compose samples get data threw the repostitory
-
 * Does the viewModel go as function parameter as a composable?
 https://github.com/Spikeysanju/JetQuotes/blob/master/app/src/main/java/www/spikeysanju/jetquotes/view/details/DetailScreen.kt
 
