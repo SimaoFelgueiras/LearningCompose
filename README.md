@@ -10,13 +10,13 @@ Feel free to send me any feedback even via dm on twitter @FelgueirasSimao
 
 * Coroutines with Flow
 * StateFlow and Shared Flow (no Live data)
-* Unidirection Data Flow
 * Hilt for DI
 * Compose
 
 ### Architecture Highlights 
 
 * MVVM on Ui Layer
+* Unidirection Data Flow
 * CA on Data Layer
 * Single Activity
 
@@ -24,3 +24,4 @@ Feel free to send me any feedback even via dm on twitter @FelgueirasSimao
 
 * Offline Mode with Room
 * High Testing Coverage (without doing TDD)
+* Try Pager 3

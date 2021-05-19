@@ -1,8 +1,13 @@
 package com.android.compose.ui.dogs
 
+import kotlinx.coroutines.flow.StateFlow
+
 interface DogsVmContract {
     interface ViewModel {
+        val uiState: StateFlow<State>
+        val uiEvent: StateFlow<Event>
 
+        fun invokeAction(action: Action)
     }
 
     sealed class Action {
@@ -10,7 +15,8 @@ interface DogsVmContract {
     }
 
     sealed class State {
-
+        object LoadingScreen : State()
+        object ErrorScreen : State()
     }
 
     sealed class Event {
