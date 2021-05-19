@@ -82,16 +82,29 @@ dependencies {
     // Saved state module for ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
 
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
+
+    // Saved state module for ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
+
+    // Annotation processor
+    kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
+
     //Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_android_version")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_android_version")
 
     // Hilt dependencies
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    implementation("com.google.dagger:hilt-android:$hilt_version")
+    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+
+    //Navigation
+    implementation("androidx.navigation:navigation-compose:$nav_version")
+
 
     //Dagger Hilt Test Tools
-    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    androidTestImplementation("com.google.dagger:hilt-android-testing:$hilt_version")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")

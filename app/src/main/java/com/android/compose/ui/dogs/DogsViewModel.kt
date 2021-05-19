@@ -27,13 +27,15 @@ class DogsViewModel @ViewModelScoped constructor(
     override val uiEvent: StateFlow<Event> = _uiEvent
 
     override fun invokeAction(action: DogsVmContract.Action) {
-        TODO("Not yet implemented")
+        when(action){
+            is DogsVmContract.Action.FetchDogs -> fetchDogs(action.type)
+        }
     }
 
     private fun fetchDogs(type: String) {
         viewModelScope.launch(dispatcher) {
             fetchDogsUseCase(type).collect {
-
+                it
             }
         }
     }
