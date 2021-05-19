@@ -12,6 +12,7 @@ Feel free to send me any feedback even via dm on twitter @FelgueirasSimao
 * StateFlow and Shared Flow (no Live data)
 * Hilt for DI
 * Compose
+* Compose Navigation
 
 ### Architecture Highlights 
 
@@ -25,3 +26,14 @@ Feel free to send me any feedback even via dm on twitter @FelgueirasSimao
 * Offline Mode with Room
 * High Testing Coverage (without doing TDD)
 * Try Pager 3
+
+## Things that are making me think
+
+* Do we need fragments? Nope
+* Where to place the view model?
+* Google compose samples get data threw the repostitory
+
+* Does the viewModel go as function parameter as a composable?
+https://github.com/Spikeysanju/JetQuotes/blob/master/app/src/main/java/www/spikeysanju/jetquotes/view/details/DetailScreen.kt
+
+### We learnning
