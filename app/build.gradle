@@ -48,43 +48,53 @@ android {
 
 dependencies {
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.google.android.material:material:$material_design"
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.material:material:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling:$compose_version"
-    implementation "androidx.activity:activity-compose:$compose_version"
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version")
+    implementation("com.google.android.material:material:$material_design")
 
-    implementation "androidx.appcompat:appcompat:$app_compat"
-    implementation "androidx.core:core-ktx:$core_ktx"
-    implementation "androidx.fragment:fragment-ktx:$fragment_ktx"
-    implementation "androidx.constraintlayout:constraintlayout:$constrain_layout"
+
+    implementation("androidx.compose.runtime:runtime:$compose_version")
+    implementation("androidx.compose.ui:ui:$compose_version")
+    implementation("androidx.compose.foundation:foundation-layout:$compose_version")
+    implementation("androidx.compose.material:material:$compose_version")
+    implementation("androidx.compose.material:material-icons-extended:$compose_version")
+    implementation("androidx.compose.foundation:foundation:$compose_version")
+    implementation("androidx.compose.animation:animation:$compose_version")
+    implementation("androidx.compose.ui:ui-tooling:$compose_version")
+    implementation("androidx.activity:activity-compose:$compose_activity")
+
+    implementation("com.google.accompanist:accompanist-swiperefresh:$accompanist_version")
+    implementation("com.google.accompanist:accompanist-insets:$accompanist_version")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:$accompanist_version")
+
+    implementation("androidx.appcompat:appcompat:$app_compat")
+    implementation("androidx.core:core-ktx:$core_ktx")
+    implementation("androidx.fragment:fragment-ktx:$fragment_ktx")
+    implementation("androidx.constraintlayout:constraintlayout:$constrain_layout")
 
     //Retrofit
-    implementation "com.squareup.retrofit2:retrofit:$retrofit"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation("com.squareup.retrofit2:retrofit:$retrofit")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofit")
 
     //Lifecycle
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+
+    // Saved state module for ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
 
     //Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_android_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_android_version"
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_android_version")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_android_version")
 
-    //Dagger - Hilt
-    implementation "com.google.dagger:hilt-android:$hilt_lib"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_lib"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_tools"
-    kapt "androidx.hilt:hilt-compiler:$hilt_tools"
+    // Hilt dependencies
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
 
     //Dagger Hilt Test Tools
-    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_lib"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
 
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
+    androidTestImplementation("androidx.test.ext:junit:1.1.2")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
 }
