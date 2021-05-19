@@ -17,9 +17,10 @@ interface DogsVmContract {
     sealed class State {
         object LoadingScreen : State()
         object ErrorScreen : State()
+        object DefaultState : State()
     }
 
     sealed class Event {
-
+        object DefaultEvent : Event()
     }
 }
