@@ -34,4 +34,6 @@ Feel free to send me any feedback even via dm on twitter @FelgueirasSimao
 * Does the viewModel go as function parameter in a composable function?
 https://github.com/Spikeysanju/JetQuotes/blob/master/app/src/main/java/www/spikeysanju/jetquotes/view/details/DetailScreen.kt
 
+* Do we need ViewModels inside a Compose world? I am thinking that might not. Lets see where it goes
+
 ### We learnning
