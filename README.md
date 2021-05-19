@@ -4,7 +4,7 @@
 
 Main objective of this project is to learn.
 
-Feel rree to send me any feedback even via dm on twitter @FelgueirasSimao
+Feel free to send me any feedback even via dm on twitter @FelgueirasSimao
 
 ### General Highlights
 
