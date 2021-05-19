@@ -30,7 +30,7 @@ Feel free to send me any feedback even via dm on twitter @FelgueirasSimao
 ## Things that are making me think
 
 * Do we need fragments? Nope
-* Where to place the view model?
+* Where to place the viewmodel?
 * Does the viewModel go as function parameter in a composable function?
 https://github.com/Spikeysanju/JetQuotes/blob/master/app/src/main/java/www/spikeysanju/jetquotes/view/details/DetailScreen.kt
 
