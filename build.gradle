@@ -28,6 +28,8 @@ buildscript {
 
         nav_version = '2.4.0-alpha01'
 
+        coil="0.11.1"
+
         google_location = '17.1.0'
         material_design = '1.4.0-beta01'
 

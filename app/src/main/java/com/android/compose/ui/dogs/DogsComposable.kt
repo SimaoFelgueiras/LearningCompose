@@ -1,25 +1,26 @@
 package com.android.compose.ui.dogs
 
-import android.util.Log
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import coil.transform.CircleCropTransformation
 import com.android.compose.ui.dogs.DogsVmContract.State.DogsPage
+import com.google.accompanist.coil.rememberCoilPainter
 
 
 @Composable
 fun DogsScreen(dogsVM: DogsViewModel) {
 
     val dogsState by dogsVM.uiState.collectAsState()
-
 
     when (dogsState) {
         is DogsPage -> {
@@ -58,11 +59,21 @@ fun DogCard(
     modifier: Modifier = Modifier,
     dogPicture: String
 ) {
-
     Card(modifier = modifier, elevation = 8.dp) {
         Row(modifier = Modifier.padding(8.dp)) {
-            //TODO to be replaced with an image
-            Text(text = dogPicture)
+            Image(
+                painter = rememberCoilPainter(
+                    request = dogPicture,
+                    requestBuilder = {
+                        transformations(CircleCropTransformation())
+                    },
+                    fadeIn = true
+                ),
+                contentDescription = "",
+                modifier = modifier.fillMaxSize(),
+                contentScale = ContentScale.FillWidth
+
+            )
         }
     }
 }
