@@ -31,6 +31,7 @@ fun LoadingRoundImage(image: String, modifier: Modifier) {
             contentScale = ContentScale.FillWidth
         )
         when (painter.loadState) {
+            //using coil loading default
             is ImageLoadState.Error -> {
                 // If you wish to display some content if the request fails
                 Icon(
