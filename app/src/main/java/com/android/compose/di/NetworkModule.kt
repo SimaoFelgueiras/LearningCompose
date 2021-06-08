@@ -28,8 +28,8 @@ object NetworkModule {
     @Provides
     fun provideGson(): Gson = GsonBuilder().create()
 
-    @Singleton
+
     @Provides
-    fun provideDogsDataSource(dogService: ApiService) =
-        DogsRemoteDataSource(dogService)
+    fun provideDogService(retrofit: Retrofit): ApiService=
+        retrofit.create(ApiService::class.java)
 }
