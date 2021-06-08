@@ -10,9 +10,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.android.compose.data.remote.entities.Dog
@@ -23,14 +21,13 @@ import com.android.compose.ui.dogs.DogsVmContract.State.DogsPage
 @Composable
 fun DogsScreen(dogsVM: DogsViewModel) {
 
-    val dogsState = remember {
-        dogsVM.uiState
-    }
+    val dogsState by dogsVM.uiState.collectAsState()
+
 
     when (dogsState) {
         is DogsPage -> {
             Log.d("TESTE", "success")
-            DogsSuccessScreen(dogsList = dogsState.dogsList)
+            DogsSuccessScreen(dogsList = (dogsState as DogsPage).dogsList)
         }
         DogsVmContract.State.DefaultState -> {
         }

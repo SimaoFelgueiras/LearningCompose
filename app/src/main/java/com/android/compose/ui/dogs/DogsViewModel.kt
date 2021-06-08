@@ -1,8 +1,6 @@
 package com.android.compose.ui.dogs
 
 import android.util.Log
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.compose.data.remote.common.Resource
@@ -26,11 +24,11 @@ class DogsViewModel @Inject constructor(
 ) : ViewModel(), DogsVmContract.ViewModel {
 
 
-    private val _uiState: MutableState<State> = mutableStateOf(DefaultState)
-    override val uiState = _uiState.value
+    private val _uiState = MutableStateFlow<State>(DefaultState)
+    override val uiState: StateFlow<State> = _uiState
 
-    private val _uiEvent: MutableState<Event> = mutableStateOf(Event.DefaultEvent)
-    override val uiEvent: Event = _uiEvent.value
+    private val _uiEvent = MutableStateFlow<Event>(Event.DefaultEvent)
+    override val uiEvent: StateFlow<Event> = _uiEvent
 
     override fun invokeAction(action: DogsVmContract.Action) {
         when (action) {
