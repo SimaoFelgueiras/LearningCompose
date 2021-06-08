@@ -1,22 +1,26 @@
 package com.android.compose.ui.dogs
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.GridCells
+import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import coil.transform.CircleCropTransformation
+import com.android.compose.ui.components.ErrorScreen
+import com.android.compose.ui.components.LoadingRoundImage
+import com.android.compose.ui.components.LoadingScreen
 import com.android.compose.ui.dogs.DogsVmContract.State.DogsPage
-import com.google.accompanist.coil.rememberCoilPainter
 
 
+@ExperimentalFoundationApi
 @Composable
 fun DogsScreen(dogsVM: DogsViewModel) {
 
@@ -30,12 +34,14 @@ fun DogsScreen(dogsVM: DogsViewModel) {
     }
 }
 
+@ExperimentalFoundationApi
 @Composable
 fun DogsSuccessScreen(modifier: Modifier = Modifier, dogsList: List<String>) {
 
-    LazyColumn(
+    LazyVerticalGrid(
         modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp),
+        cells = GridCells.Fixed(2)
     ) {
         items(dogsList) { dogs ->
             DogCard(
@@ -51,31 +57,9 @@ fun DogCard(
     modifier: Modifier = Modifier,
     dogPicture: String
 ) {
-    Card(modifier = modifier, elevation = 8.dp) {
+    Card(modifier = modifier.padding(PaddingValues(4.dp)), elevation = 8.dp) {
         Row(modifier = Modifier.padding(8.dp)) {
-            Image(
-                painter = rememberCoilPainter(
-                    request = dogPicture,
-                    requestBuilder = {
-                        transformations(CircleCropTransformation())
-                    },
-                    fadeIn = true
-                ),
-                contentDescription = "",
-                modifier = modifier.fillMaxSize(),
-                contentScale = ContentScale.FillWidth
-            )
+            LoadingRoundImage(image = dogPicture, modifier = modifier)
         }
     }
-}
-
-
-@Composable
-fun ErrorScreen() {
-    Text("Error on the Request")
-}
-
-@Composable
-fun LoadingScreen() {
-    Text("Loading")
 }

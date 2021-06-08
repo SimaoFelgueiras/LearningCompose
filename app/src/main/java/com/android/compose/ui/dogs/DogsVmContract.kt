@@ -11,7 +11,7 @@ interface DogsVmContract {
     }
 
     sealed class Action {
-        class FetchDogs(val type : String) : Action()
+        class FetchDogs(val type: String) : Action()
     }
 
     sealed class State {
