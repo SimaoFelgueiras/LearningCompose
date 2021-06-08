@@ -39,7 +39,6 @@ class DogsViewModel @Inject constructor(
     private fun fetchDogs(type: String) {
         viewModelScope.launch(dispatcher) {
             fetchDogsUseCase(type).collect {
-                Log.d("TESTE", it.status.toString())
                 when (it.status) {
                     Resource.Status.SUCCESS -> _uiState.value =
                         State.DogsPage(it.data?.message ?: emptyList())

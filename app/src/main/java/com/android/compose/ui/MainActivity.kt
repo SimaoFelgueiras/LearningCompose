@@ -7,17 +7,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.*
-import com.android.compose.data.remote.entities.Dog
 import com.android.compose.ui.dogs.*
-import com.android.compose.ui.navigation.MainScreen
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -30,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
 
         Log.d("TESTE", "fetching dog")
-        viewModel.invokeAction(DogsVmContract.Action.FetchDogs("working_dog"))
+        viewModel.invokeAction(DogsVmContract.Action.FetchDogs("terrier"))
         Log.d("TESTE", "requesting")
 
         setContent {

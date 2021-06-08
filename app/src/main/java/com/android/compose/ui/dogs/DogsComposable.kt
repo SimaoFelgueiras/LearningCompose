@@ -9,12 +9,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.android.compose.data.remote.entities.Dog
-import com.android.compose.ui.dogs.DogsVmContract.Action.FetchDogs
 import com.android.compose.ui.dogs.DogsVmContract.State.DogsPage
 
 
@@ -26,24 +23,22 @@ fun DogsScreen(dogsVM: DogsViewModel) {
 
     when (dogsState) {
         is DogsPage -> {
-            Log.d("TESTE", "success")
             DogsSuccessScreen(dogsList = (dogsState as DogsPage).dogsList)
         }
         DogsVmContract.State.DefaultState -> {
         }
         DogsVmContract.State.ErrorScreen -> {
             ErrorScreen()
-            Log.d("TESTE", "error")
         }
         DogsVmContract.State.LoadingScreen -> {
-            Log.d("TESTE", "loading")
+            LoadingScreen()
         }
     }
 
 }
 
 @Composable
-fun DogsSuccessScreen(modifier: Modifier = Modifier, dogsList: List<Dog>) {
+fun DogsSuccessScreen(modifier: Modifier = Modifier, dogsList: List<String>) {
 
     LazyColumn(
         modifier = modifier,
@@ -52,7 +47,7 @@ fun DogsSuccessScreen(modifier: Modifier = Modifier, dogsList: List<Dog>) {
         items(dogsList) { dogs ->
             DogCard(
                 modifier = Modifier.fillMaxWidth(),
-                dogPicture = dogs.status ?: ""
+                dogPicture = dogs
             )
         }
     }
@@ -76,4 +71,9 @@ fun DogCard(
 @Composable
 fun ErrorScreen() {
     Text("Error on the Request")
+}
+
+@Composable
+fun LoadingScreen() {
+    Text("Loading")
 }
