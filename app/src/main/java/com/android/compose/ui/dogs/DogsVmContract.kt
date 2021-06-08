@@ -5,8 +5,8 @@ import kotlinx.coroutines.flow.StateFlow
 
 interface DogsVmContract {
     interface ViewModel {
-        val uiState: StateFlow<State>
-        val uiEvent: StateFlow<Event>
+        val uiState: State
+        val uiEvent: Event
 
         fun invokeAction(action: Action)
     }

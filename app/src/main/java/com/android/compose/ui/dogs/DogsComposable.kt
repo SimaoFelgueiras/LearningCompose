@@ -1,5 +1,6 @@
 package com.android.compose.ui.dogs
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -8,6 +9,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
 import androidx.compose.material.Text
+import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -21,19 +23,23 @@ import com.android.compose.ui.dogs.DogsVmContract.State.DogsPage
 @Composable
 fun DogsScreen(dogsVM: DogsViewModel) {
 
-    dogsVM.invokeAction(FetchDogs("working_dog"))
     val dogsState = remember {
-        mutableStateOf(dogsVM.uiState.value)
+        dogsVM.uiState
     }
 
-    when (dogsState.component1()) {
-        is DogsPage -> DogsSuccessScreen(dogsList = (dogsState.value as DogsPage).dogsList)
-
+    when (dogsState) {
+        is DogsPage -> {
+            Log.d("TESTE", "success")
+            DogsSuccessScreen(dogsList = dogsState.dogsList)
+        }
         DogsVmContract.State.DefaultState -> {
         }
         DogsVmContract.State.ErrorScreen -> {
+            ErrorScreen()
+            Log.d("TESTE", "error")
         }
         DogsVmContract.State.LoadingScreen -> {
+            Log.d("TESTE", "loading")
         }
     }
 
@@ -67,5 +73,10 @@ fun DogCard(
             Text(text = dogPicture)
         }
     }
+}
 
+
+@Composable
+fun ErrorScreen() {
+    Text("Error on the Request")
 }

@@ -1,5 +1,8 @@
 package com.android.compose.ui.dogs
 
+import android.util.Log
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.compose.data.remote.common.Resource
@@ -9,7 +12,6 @@ import com.android.compose.ui.dogs.DogsVmContract.Event
 import com.android.compose.ui.dogs.DogsVmContract.State
 import com.android.compose.ui.dogs.DogsVmContract.State.DefaultState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -24,11 +26,11 @@ class DogsViewModel @Inject constructor(
 ) : ViewModel(), DogsVmContract.ViewModel {
 
 
-    private val _uiState = MutableStateFlow<State>(DefaultState)
-    override val uiState: StateFlow<State> = _uiState
+    private val _uiState: MutableState<State> = mutableStateOf(DefaultState)
+    override val uiState = _uiState.value
 
-    private val _uiEvent = MutableStateFlow<Event>(Event.DefaultEvent)
-    override val uiEvent: StateFlow<Event> = _uiEvent
+    private val _uiEvent: MutableState<Event> = mutableStateOf(Event.DefaultEvent)
+    override val uiEvent: Event = _uiEvent.value
 
     override fun invokeAction(action: DogsVmContract.Action) {
         when (action) {
@@ -39,6 +41,7 @@ class DogsViewModel @Inject constructor(
     private fun fetchDogs(type: String) {
         viewModelScope.launch(dispatcher) {
             fetchDogsUseCase(type).collect {
+                Log.d("TESTE", it.status.toString())
                 when (it.status) {
                     Resource.Status.SUCCESS -> _uiState.value =
                         State.DogsPage(it.data?.message ?: emptyList())
