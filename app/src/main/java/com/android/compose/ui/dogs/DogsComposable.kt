@@ -23,18 +23,11 @@ fun DogsScreen(dogsVM: DogsViewModel) {
     val dogsState by dogsVM.uiState.collectAsState()
 
     when (dogsState) {
-        is DogsPage -> {
-            DogsSuccessScreen(dogsList = (dogsState as DogsPage).dogsList)
-        }
+        is DogsPage -> DogsSuccessScreen(dogsList = (dogsState as DogsPage).dogsList)
         DogsVmContract.State.DefaultState -> Unit
-        DogsVmContract.State.ErrorScreen -> {
-            ErrorScreen()
-        }
-        DogsVmContract.State.LoadingScreen -> {
-            LoadingScreen()
-        }
+        DogsVmContract.State.ErrorScreen -> ErrorScreen()
+        DogsVmContract.State.LoadingScreen -> LoadingScreen()
     }
-
 }
 
 @Composable
