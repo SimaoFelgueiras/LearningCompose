@@ -19,11 +19,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-        Log.d("TESTE", "fetching dog")
-        viewModel.invokeAction(DogsVmContract.Action.FetchDogs("terrier"))
-        Log.d("TESTE", "requesting")
-
         setContent {
             MaterialTheme {
                 Surface(color = MaterialTheme.colors.background) {
@@ -31,5 +26,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+        viewModel.invokeAction(DogsVmContract.Action.FetchDogs("terrier"))
     }
 }

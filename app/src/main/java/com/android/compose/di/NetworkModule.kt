@@ -1,10 +1,9 @@
 package com.android.compose.di
 
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import com.android.compose.data.remote.ApiConstants.BASE_URL
 import com.android.compose.data.remote.ApiService
-import com.android.compose.data.remote.datasource.DogsRemoteDataSource
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

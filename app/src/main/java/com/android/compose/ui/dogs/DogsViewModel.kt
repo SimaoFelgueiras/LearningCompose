@@ -1,6 +1,5 @@
 package com.android.compose.ui.dogs
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.compose.data.remote.common.Resource

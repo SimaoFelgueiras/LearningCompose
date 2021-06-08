@@ -26,8 +26,7 @@ fun DogsScreen(dogsVM: DogsViewModel) {
         is DogsPage -> {
             DogsSuccessScreen(dogsList = (dogsState as DogsPage).dogsList)
         }
-        DogsVmContract.State.DefaultState -> {
-        }
+        DogsVmContract.State.DefaultState -> Unit
         DogsVmContract.State.ErrorScreen -> {
             ErrorScreen()
         }
@@ -72,7 +71,6 @@ fun DogCard(
                 contentDescription = "",
                 modifier = modifier.fillMaxSize(),
                 contentScale = ContentScale.FillWidth
-
             )
         }
     }
