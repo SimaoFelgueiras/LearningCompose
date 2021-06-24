@@ -1,22 +1,20 @@
 package com.android.compose.ui.dogs
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.android.compose.ui.components.ErrorScreen
 import com.android.compose.ui.components.LoadingRoundImage
 import com.android.compose.ui.components.LoadingScreen
+import com.android.compose.ui.components.SearchView
 import com.android.compose.ui.dogs.DogsVmContract.State.DogsPage
 
 
@@ -37,17 +35,19 @@ fun DogsScreen(dogsVM: DogsViewModel) {
 @ExperimentalFoundationApi
 @Composable
 fun DogsSuccessScreen(modifier: Modifier = Modifier, dogsList: List<String>) {
-
-    LazyVerticalGrid(
-        modifier = modifier,
-        contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp),
-        cells = GridCells.Fixed(2)
-    ) {
-        items(dogsList) { dogs ->
-            DogCard(
-                modifier = Modifier.fillMaxWidth(),
-                dogPicture = dogs
-            )
+    Column {
+        SearchView(LABEL, HINT)
+        LazyVerticalGrid(
+            modifier = modifier,
+            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp),
+            cells = GridCells.Fixed(2)
+        ) {
+            items(dogsList) { dogs ->
+                DogCard(
+                    modifier = Modifier.fillMaxWidth(),
+                    dogPicture = dogs
+                )
+            }
         }
     }
 }
@@ -63,3 +63,6 @@ fun DogCard(
         }
     }
 }
+
+private const val LABEL = "Insert a Dog Race"
+private const val HINT = "Click to insert a Dog Race"

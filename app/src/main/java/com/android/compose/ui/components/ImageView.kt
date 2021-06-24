@@ -19,8 +19,7 @@ fun LoadingRoundImage(image: String, modifier: Modifier) {
         request = image,
         requestBuilder = {
             transformations(CircleCropTransformation())
-        },
-        fadeIn = true
+        }
     )
 
     Box {
