@@ -13,7 +13,7 @@ import com.android.compose.R
 fun TopBar() {
     TopAppBar(
         title = { Text(text = stringResource(R.string.app_name), fontSize = 18.sp) },
-        backgroundColor = colorResource(id = R.color.purple_200),
+        backgroundColor = colorResource(id = R.color.purple_700),
         contentColor = White
     )
 }

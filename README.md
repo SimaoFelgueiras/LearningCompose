@@ -9,7 +9,7 @@ Feel free to send me any feedback even via dm on twitter @FelgueirasSimao
 
 Here's an image off the work until now:
 
-[![Screenshot-20210624-162607.png](https://i.postimg.cc/3J4CjZ48/Screenshot-20210624-162607.png)](https://postimg.cc/jLT7tP4m)
+[![Screenshot-20210624-165646.png](https://i.postimg.cc/DZXV9MBC/Screenshot-20210624-165646.png)](https://postimg.cc/r0MYWQ6W)
 
 ### General Highlights
 

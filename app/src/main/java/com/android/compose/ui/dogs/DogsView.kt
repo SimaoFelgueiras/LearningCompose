@@ -6,14 +6,11 @@ import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
-import com.android.compose.ui.components.ErrorScreen
-import com.android.compose.ui.components.LoadingRoundImage
-import com.android.compose.ui.components.LoadingScreen
+import com.android.compose.ui.components.*
 import com.android.compose.ui.components.SearchView
 import com.android.compose.ui.dogs.DogsVmContract.State.DogsPage
 
@@ -35,8 +32,9 @@ fun DogsScreen(dogsVM: DogsViewModel) {
 @ExperimentalFoundationApi
 @Composable
 fun DogsSuccessScreen(modifier: Modifier = Modifier, dogsList: List<String>) {
+    val text = remember { mutableStateOf(TextFieldValue(HINT)) }
     Column {
-        SearchView(LABEL, HINT)
+        SearchView(text)
         LazyVerticalGrid(
             modifier = modifier,
             contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp),

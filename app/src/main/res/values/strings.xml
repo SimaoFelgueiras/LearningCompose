@@ -1,4 +1,3 @@
 <resources>
-    <string name="app_name">LearningCompose</string>
-    <string name="dogs_fragment">Hello Dogs</string>
+    <string name="app_name">Dogs Compose App</string>
 </resources>
