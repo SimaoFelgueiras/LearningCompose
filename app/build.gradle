@@ -41,77 +41,77 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
-        kotlinCompilerVersion '1.4.32'
+        kotlinCompilerExtensionVersion versions.compose
+        kotlinCompilerVersion versions.kotlin
     }
 }
 
 dependencies {
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version")
-    implementation("com.google.android.material:material:$material_design")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin")
+    implementation("com.google.android.material:material:$versions.materialDesign")
 
 
-    implementation("androidx.compose.runtime:runtime:$compose_version")
-    implementation("androidx.compose.ui:ui:$compose_version")
-    implementation("androidx.compose.foundation:foundation-layout:$compose_version")
-    implementation("androidx.compose.material:material:$compose_version")
-    implementation("androidx.compose.material:material-icons-extended:$compose_version")
-    implementation("androidx.compose.foundation:foundation:$compose_version")
-    implementation("androidx.compose.animation:animation:$compose_version")
-    implementation("androidx.compose.ui:ui-tooling:$compose_version")
-    implementation("androidx.activity:activity-compose:$compose_activity")
+    implementation("androidx.compose.runtime:runtime:$versions.compose")
+    implementation("androidx.compose.ui:ui:$versions.compose")
+    implementation("androidx.compose.foundation:foundation-layout:$versions.compose")
+    implementation("androidx.compose.material:material:$versions.compose")
+    implementation("androidx.compose.material:material-icons-extended:$versions.compose")
+    implementation("androidx.compose.foundation:foundation:$versions.compose")
+    implementation("androidx.compose.animation:animation:$versions.compose")
+    implementation("androidx.compose.ui:ui-tooling:$versions.compose")
+    implementation("androidx.activity:activity-compose:$versions.composeActivity")
 
-    implementation("com.google.accompanist:accompanist-swiperefresh:$accompanist_version")
-    implementation("com.google.accompanist:accompanist-insets:$accompanist_version")
-    implementation("com.google.accompanist:accompanist-systemuicontroller:$accompanist_version")
+    implementation("com.google.accompanist:accompanist-swiperefresh:$versions.accompanistVersion")
+    implementation("com.google.accompanist:accompanist-insets:$versions.accompanistVersion")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:$versions.accompanistVersion")
 
-    implementation("androidx.appcompat:appcompat:$app_compat")
-    implementation("androidx.core:core-ktx:$core_ktx")
-    implementation("androidx.fragment:fragment-ktx:$fragment_ktx")
-    implementation("androidx.constraintlayout:constraintlayout:$constrain_layout")
+    implementation("androidx.appcompat:appcompat:$versions.appCompat")
+    implementation("androidx.core:core-ktx:$versions.coreKtx")
+    implementation("androidx.fragment:fragment-ktx:$versions.fragmentKtx")
+    implementation("androidx.constraintlayout:constraintlayout:$versions.constrainLayout")
 
     //Retrofit
-    implementation("com.squareup.retrofit2:retrofit:$retrofit")
-    implementation("com.squareup.retrofit2:converter-gson:$retrofit")
+    implementation("com.squareup.retrofit2:retrofit:$versions.retrofit")
+    implementation("com.squareup.retrofit2:converter-gson:$versions.retrofit")
 
     //Lifecycle
     // ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle")
 
     // Saved state module for ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$versions.lifecycle")
 
     // Lifecycles only (without ViewModel or LiveData)
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycle")
 
     // Saved state module for ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$versions.lifecycle")
 
     // Annotation processor
-    kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
+    kapt("androidx.lifecycle:lifecycle-compiler:$versions.lifecycle")
 
     //Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_android_version")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_android_version")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutinesAndroidVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutinesAndroidVersion")
 
     // Hilt dependencies
-    implementation("com.google.dagger:hilt-android:$hilt_version")
-    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+    implementation("com.google.dagger:hilt-android:$versions.hilt")
+    kapt("com.google.dagger:hilt-android-compiler:$versions.hilt")
 
     //Navigation
-    implementation("androidx.navigation:navigation-compose:$nav_version")
+    implementation("androidx.navigation:navigation-compose:$versions.nav")
 
     //Coil
 
-    implementation "com.google.accompanist:accompanist-coil:$coil"
+    implementation "com.google.accompanist:accompanist-coil:$versions.coil"
 
 
     //Dagger Hilt Test Tools
-    androidTestImplementation("com.google.dagger:hilt-android-testing:$hilt_version")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:$versions.hilt")
 
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$versions.compose")
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
 }
