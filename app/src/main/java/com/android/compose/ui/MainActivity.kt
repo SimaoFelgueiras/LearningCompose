@@ -6,8 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import com.android.compose.ui.components.TopBar
 import com.android.compose.ui.dogs.*
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,7 +26,10 @@ class MainActivity : AppCompatActivity() {
         setContent {
             MaterialTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    DogsScreen(viewModel)
+                    Column {
+                        TopBar()
+                        DogsScreen(viewModel)
+                    }
                 }
             }
         }
