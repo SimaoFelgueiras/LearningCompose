@@ -29,6 +29,10 @@ class DogsViewModel @Inject constructor(
     private val _uiEvent = MutableStateFlow<Event>(Event.DefaultEvent)
     override val uiEvent: StateFlow<Event> = _uiEvent
 
+    init{
+        invokeAction(DogsVmContract.Action.FetchDogs("terrier"))
+    }
+
     override fun invokeAction(action: DogsVmContract.Action) {
         when (action) {
             is DogsVmContract.Action.FetchDogs -> fetchDogs(action.type)

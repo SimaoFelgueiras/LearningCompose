@@ -1,4 +1,4 @@
-package com.android.compose.ui.components
+package com.compose.ds_components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box

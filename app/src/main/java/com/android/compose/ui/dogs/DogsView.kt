@@ -10,15 +10,16 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
-import com.android.compose.ui.components.*
-import com.android.compose.ui.components.SearchView
+import com.compose.ds_components.ErrorScreen
+import com.compose.ds_components.LoadingRoundImage
+import com.compose.ds_components.LoadingScreen
+import com.compose.ds_components.SearchView
 import com.android.compose.ui.dogs.DogsVmContract.State.DogsPage
 
 
 @ExperimentalFoundationApi
 @Composable
 fun DogsScreen(dogsVM: DogsViewModel) {
-
     val dogsState by dogsVM.uiState.collectAsState()
 
     when (dogsState) {
