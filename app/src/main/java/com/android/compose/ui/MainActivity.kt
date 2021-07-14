@@ -13,10 +13,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.android.compose.R
+import com.android.compose.ui.dogs.*
 import com.compose.ds_components.BottomNavigationBar
 import com.compose.ds_components.TopBar
-import com.compose.ds_components.NavigationItem
-import com.android.compose.ui.dogs.*
+import com.compose.ds_components.bottombar.NavigationItem
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -43,13 +44,13 @@ class MainActivity : AppCompatActivity() {
             Surface(color = MaterialTheme.colors.background) {
                 Scaffold(
                     topBar = {
-                        com.compose.ds_components.TopBar()
+                        TopBar(this.getString(R.string.app_name))
                     },
                     bottomBar = {
-                        com.compose.ds_components.BottomNavigationBar(
+                        BottomNavigationBar(
                             listOf(
-                                com.compose.ds_components.NavigationItem.Home,
-                                com.compose.ds_components.NavigationItem.Favorites
+                                NavigationItem.Home,
+                                NavigationItem.Favorites
                             ), navController
                         )
                     }) {
@@ -63,11 +64,11 @@ class MainActivity : AppCompatActivity() {
     @ExperimentalFoundationApi
     @Composable
     fun Navigation(navController: NavHostController) {
-        NavHost(navController, startDestination = com.compose.ds_components.NavigationItem.Home.route) {
-            composable(com.compose.ds_components.NavigationItem.Home.route) {
+        NavHost(navController, startDestination = NavigationItem.Home.route) {
+            composable(NavigationItem.Home.route) {
                 DogsScreen(viewModel)
             }
-            composable(com.compose.ds_components.NavigationItem.Favorites.route) {
+            composable(NavigationItem.Favorites.route) {
 
             }
 

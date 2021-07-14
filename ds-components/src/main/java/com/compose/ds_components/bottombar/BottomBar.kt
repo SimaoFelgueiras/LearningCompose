@@ -7,15 +7,15 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.graphics.Color.Companion.Gray
+import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.navigation.NavController
 import com.compose.ds_components.bottombar.NavigationItem
 import com.compose.ds_components.theme.Purple200
-import com.compose.ds_components.theme.Teal200
 
 @Composable
 fun BottomNavigationBar(items: List<NavigationItem>, navController: NavController) {
     BottomNavigation(
-        backgroundColor = Teal200,
+        backgroundColor = White,
         contentColor = Black
     ) {
         items.forEach { item ->

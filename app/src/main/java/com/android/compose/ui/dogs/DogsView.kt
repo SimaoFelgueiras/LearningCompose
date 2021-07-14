@@ -58,7 +58,7 @@ fun DogCard(
 ) {
     Card(modifier = modifier.padding(PaddingValues(4.dp)), elevation = 8.dp) {
         Row(modifier = Modifier.padding(8.dp)) {
-            LoadingRoundImage(image = dogPicture, modifier = modifier)
+            LoadingRoundImage(image = dogPicture)
         }
     }
 }

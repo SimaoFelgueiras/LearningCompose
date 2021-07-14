@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -27,9 +29,21 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
+        useIR = true
     }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion versions.compose
+        kotlinCompilerVersion versions.kotlin
+    }
+
 }
 
 dependencies {
@@ -50,10 +64,7 @@ dependencies {
     //Navigation
     api("androidx.navigation:navigation-compose:$versions.nav")
 
-
-
     //Coil
-
     api "com.google.accompanist:accompanist-coil:$versions.coil"
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin")

@@ -14,7 +14,7 @@ import com.google.accompanist.coil.rememberCoilPainter
 import com.google.accompanist.imageloading.ImageLoadState
 
 @Composable
-fun LoadingRoundImage(image: String, modifier: Modifier) {
+fun LoadingRoundImage(image: String) {
     val painter = rememberCoilPainter(
         request = image,
         requestBuilder = {
@@ -26,7 +26,7 @@ fun LoadingRoundImage(image: String, modifier: Modifier) {
         Image(
             painter = painter,
             contentDescription = "",
-            modifier = modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.FillWidth
         )
         when (painter.loadState) {
