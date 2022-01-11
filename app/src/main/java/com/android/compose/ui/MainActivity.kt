@@ -9,6 +9,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -25,7 +26,11 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val viewModel: DogsViewModel by viewModels()
-
+    private val bottomBarItems = listOf(
+        NavigationItem.Home,
+        NavigationItem.Favorites,
+        NavigationItem.Settings
+    )
 
     @ExperimentalFoundationApi
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,13 +53,11 @@ class MainActivity : AppCompatActivity() {
                     },
                     bottomBar = {
                         BottomNavigationBar(
-                            listOf(
-                                NavigationItem.Home,
-                                NavigationItem.Favorites
-                            ), navController
+                            bottomBarItems,
+                            navController
                         )
                     }) {
-                    Navigation(navController)
+                    NavigationGraph(navController = navController)
                 }
             }
         }
@@ -63,7 +66,7 @@ class MainActivity : AppCompatActivity() {
 
     @ExperimentalFoundationApi
     @Composable
-    fun Navigation(navController: NavHostController) {
+    fun NavigationGraph(navController: NavHostController) {
         NavHost(navController, startDestination = NavigationItem.Home.route) {
             composable(NavigationItem.Home.route) {
                 DogsScreen(viewModel)
@@ -71,7 +74,9 @@ class MainActivity : AppCompatActivity() {
             composable(NavigationItem.Favorites.route) {
 
             }
+            composable(NavigationItem.Settings.route) {
 
+            }
         }
     }
 }

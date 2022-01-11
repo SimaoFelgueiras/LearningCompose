@@ -6,6 +6,8 @@ import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.TextFieldValue
@@ -63,9 +65,17 @@ fun DogCard(
 }
 
 @Composable
-@Preview
+fun PreviewTest(){
+    Text(text = "Test Preview")
+}
+
+
+@Preview(showBackground = true)
+@Composable
 private fun DogScreenPreview(){
-    DogCard("Test")
+    MaterialTheme {
+        PreviewTest()
+    }
 }
 
 private const val LABEL = "Insert a Dog Race"

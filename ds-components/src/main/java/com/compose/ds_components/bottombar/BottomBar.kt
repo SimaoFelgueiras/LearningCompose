@@ -9,6 +9,8 @@ import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.graphics.Color.Companion.Gray
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.compose.currentBackStackEntryAsState
 import com.compose.ds_components.bottombar.NavigationItem
 import com.compose.ds_components.theme.Purple200
 
@@ -18,6 +20,7 @@ fun BottomNavigationBar(items: List<NavigationItem>, navController: NavControlle
         backgroundColor = White,
         contentColor = Black
     ) {
+        val currentRoute = navController.currentBackStackEntryAsState().value?.destination
         items.forEach { item ->
             BottomNavigationItem(
                 icon = { Icon(item.icon, contentDescription = item.title) },
@@ -25,7 +28,9 @@ fun BottomNavigationBar(items: List<NavigationItem>, navController: NavControlle
                 selectedContentColor = Purple200,
                 unselectedContentColor = Gray,
                 alwaysShowLabel = true,
-                selected = true,
+                selected = currentRoute?.hierarchy?.any{
+                    it.route==item.route
+                }==true,
                 onClick = {
                     navController.navigate(item.route) {
                         // Pop up to the start destination of the graph to
