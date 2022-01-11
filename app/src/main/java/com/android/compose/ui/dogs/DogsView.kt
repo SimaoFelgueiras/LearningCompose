@@ -9,6 +9,7 @@ import androidx.compose.material.Card
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.compose.ds_components.ErrorScreen
 import com.compose.ds_components.LoadingRoundImage
@@ -43,7 +44,6 @@ fun DogsSuccessScreen(modifier: Modifier = Modifier, dogsList: List<String>) {
         ) {
             items(dogsList) { dogs ->
                 DogCard(
-                    modifier = Modifier.fillMaxWidth(),
                     dogPicture = dogs
                 )
             }
@@ -53,14 +53,19 @@ fun DogsSuccessScreen(modifier: Modifier = Modifier, dogsList: List<String>) {
 
 @Composable
 fun DogCard(
-    modifier: Modifier = Modifier,
     dogPicture: String
 ) {
-    Card(modifier = modifier.padding(PaddingValues(4.dp)), elevation = 8.dp) {
+    Card(modifier = Modifier.padding(PaddingValues(4.dp)), elevation = 8.dp) {
         Row(modifier = Modifier.padding(8.dp)) {
             LoadingRoundImage(image = dogPicture)
         }
     }
+}
+
+@Composable
+@Preview
+private fun DogScreenPreview(){
+    DogCard("Test")
 }
 
 private const val LABEL = "Insert a Dog Race"
