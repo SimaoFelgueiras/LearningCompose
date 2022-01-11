@@ -1,4 +1,4 @@
-package com.android.compose.ui.components
+package com.compose.ds_components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,6 +15,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.compose.ds_components.theme.Purple200
 
 @Composable
 fun SearchView(state: MutableState<TextFieldValue>) {
@@ -59,7 +60,7 @@ fun SearchView(state: MutableState<TextFieldValue>) {
             cursorColor = Color.White,
             leadingIconColor = Color.White,
             trailingIconColor = Color.White,
-            backgroundColor = colorResource(id = com.android.compose.R.color.purple_200),
+            backgroundColor = Purple200,
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
             disabledIndicatorColor = Color.Transparent

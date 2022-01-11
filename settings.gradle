@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "LearningCompose"
 include ':app'
+include ':ds-components'
